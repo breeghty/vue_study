@@ -21,6 +21,12 @@ export default {
             month:1,
         }
     },
+    updated(){
+        console.log("업데이트.");
+        if(this.month == 2){
+            alert("수량 2개입니다.");
+        }
+    },
     watch: {
         month(a){
             //사용자가 month를 글자로 입력하면 경고문 띄우기.
