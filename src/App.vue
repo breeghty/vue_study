@@ -1,4 +1,5 @@
 <template>
+
   <transition name="fade">
     <ModalUi :oneroom = "oneroom" :clIdx = "clIdx" :modalIsOpen = "modalIsOpen" @closeModal="modalIsOpen = false"></ModalUi>
   </transition>
@@ -6,9 +7,13 @@
   <nav>
       <a v-for="(data) in menu" :key = "data" href="#">{{data}}</a>
   </nav>
-  <DisCount v-bind="soyoung"></DisCount>
+  <DisCount v-if="showDiscount == true"></DisCount>
+  <button @click="priceSort">가격순 정렬</button>
+  <button @click="sortBack">되돌리기</button>
   <!-- object -->
   <CardUi :oneroom = "oneroom" @openModal="modalIsOpen = true; clIdx = $event;"></CardUi>
+
+  
   <!-- <div v-for="(room,i) in oneroom" :key="room">
     <img :src="oneroom[i].image" class='room-img' alt="">
     <h4 @click="modalIsOpen = true; clIdx = i">{{oneroom[i].title}}</h4>
@@ -42,10 +47,13 @@ import Discount from './Discount.vue';
 import ModalUi from './Modal';
 import CardUi from './Card.vue';
 
+
 export default {
   name: 'App',
   data(){
     return{
+      // 데이터 사본 
+      original_oneroom : [...data], 
       oneroom : data,
       clIdx: 0,
       modalIsOpen : false,
@@ -53,14 +61,34 @@ export default {
       menu : ['HOME', 'ABOUT', 'PRODUCTS'],
       products: ['역삼동원룸', '천호동원룸', '마포구원룸'],
       random: '가격은 아무거나',
-      soyoung : {name: 'soyoung', age: 27}
+      soyoung : {name: 'soyoung', age: 27},
+      showDiscount : true,
     }
   },
   methods : {
     increase(index){
       this.countNum[index]++;
+    },
+    sortBack(){
+      this.oneroom = [...this.original_oneroom];
+    },
+    priceSort(){
+      this.oneroom.sort(function(a, b){
+        return a.price - b.price
+      })
+      // array.sort(function(a,b){
+      //   return a - b
+      // });
     }
   },
+  // life cycle hooks
+  // mounted(){
+  //   //마운트 되고 나서 코드 실행 2초 뒤에 discount 창 없애기.
+  //   setTimeout(()=>{
+  //     this.showDiscount = false;
+  //   }, 2000);
+
+  // },
   components: {
     DisCount: Discount,
     ModalUi : ModalUi,
