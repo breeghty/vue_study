@@ -1,33 +1,34 @@
-<vue 시작하기> 20230403
+<div align=center>
+   <h1>Vue 입문하기</h1>
+</div>
+   <br>
 
-1. node.js 설치와 코드에디터 설치
-2. 터미널 명령어
-- npm install -g @vue/cli 
-   vue 설치
-- vue create project_name 
-   vue 프로젝트 명 입력, 프로젝트 생성 => 프로젝트가 생성된 폴더로 다시 open folder!
-- npm run serve
-    라이브 서버로 미리보기.
-- 코딩은 App.vue에 하기
+<h2>설치</h2>
+<p>1. node.js 설치와 코드에디터 설치</p>
+<p>2.터미널 명령어</p>
+<p>- vue 설치: <strong>npm install -g @vue/cli</strong></p>
+<p>- vue 프로젝트 만들기: <strong>vue create project_name </strong></p>
+<p>- 프로젝트 생성 => 프로젝트가 생성된 폴더로 다시 open folder!</p>
+<p>- 라이브 서버로 미리 보기 <strong>npm run serve</strong></p>
+<p>- 코딩은 App.vue에 할 것</p>
 
-3. 확장프로그램
-Vetur, Vue 3 snippets, HTML CSS Support
+<p>3. 확장프로그램</p>
+<p>Vetur, Vue 3 snippets, HTML CSS Support</p>
 
-4. app.vue
-<template>안에는 html, script 안에는 js, style안에는 css 작성
+<p>4. app.vue</p>
+<p><template>안에는 html, script 안에는 js, style안에는 css 작성</p>
 
-5. 라이브 서버
-new terminal => npm run serve => 터미널에 있는 주소 ctrl + click!
+<p>5.라이브 서버</p>
+<p>new terminal => npm run serve => 터미널에 있는 주소 ctrl + click!</p>
 
 
-6. npm은 각종 웹개발 라이브러리 설치 도우미.
-node.js 설치는 npm을 사용하기 위해 설치한 것.
+<p>6. npm은 각종 웹개발 라이브러리 설치 도우미.</p>
+<p>node.js 설치는 npm을 사용하기 위해 설치한 것.</p>
 
-7. node_modules: 프로젝트 라이브러리들
-src: 소스코드 파일
-package.json 라이브러리 버전, 프로젝트 설정 기록
+<p>7. node_modules: 프로젝트 라이브러리들</p>
+<p>src: 소스코드 파일, package.json 라이브러리 버전, 프로젝트 설정 기록</p>
 
-<데이터 바인딩>
+<h2>데이터 바인딩</h2>
 - 자주 바뀌는 데이터는 바인딩 해 놓는다. {{}}
 - 데이터는 object 형식으로 보관한다.
 - html 속성도 바인딩 가능
